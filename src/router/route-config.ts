@@ -19,5 +19,11 @@ const constantsRoutes: IRouteConfigs[] = [
   //   exact: true,
   //   auth: false,
   // },
+  {
+    path: '/goods-list',
+    component: 'purchase/goods-list',
+    exact: true,
+    auth: false,
+  },
 ];
 export default constantsRoutes;
