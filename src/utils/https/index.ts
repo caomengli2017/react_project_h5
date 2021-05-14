@@ -1,3 +1,4 @@
+import { Toast } from 'antd-mobile';
 import { AxiosRequestConfig } from 'axios';
 import axios from './axios';
 
@@ -9,7 +10,9 @@ export type ResponseType =
   | 'json'
   | 'text'
   | 'stream';
-interface AxiosRequest extends AxiosRequestConfig {}
+interface AxiosRequest extends AxiosRequestConfig {
+  errorAuth?: boolean; // 错误验证 并弹出提示
+}
 
 export class BaseHttpModel<T = any> {
   code: number;
@@ -41,6 +44,7 @@ class HttpApi {
     data,
     params,
     responseType,
+    errorAuth = true,
   }: AxiosRequest): Promise<BaseHttpModel<T>> {
     return new Promise((resolve, reject) => {
       axios({
@@ -57,6 +61,9 @@ class HttpApi {
             const _newres: BaseHttpModel<T> = new BaseHttpModel<T>(res.data);
             resolve(_newres);
           } else {
+            if (errorAuth) {
+              Toast.info(res.data.errorTips);
+            }
             reject(
               new BaseHttpModel({
                 code: res.data?.code ?? -1,

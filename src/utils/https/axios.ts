@@ -1,3 +1,4 @@
+import { Toast } from 'antd-mobile';
 import Axios from 'axios';
 
 const axios = Axios.create();
@@ -24,6 +25,7 @@ axios.interceptors.response.use(
   }
 );
 const openErrorNotification = (text: string, msg: string = 'Error') => {
+  Toast.info(text);
   // notification.error({
   //   message: msg,
   //   description: text,

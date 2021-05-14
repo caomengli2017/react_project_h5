@@ -194,6 +194,11 @@ module.exports = function (webpackEnv) {
               '@brand-warning': '#FFF9E6',
               '@brand-error': '#FFE6E6',
               '@fill-base': '#F4F4F6',
+              '@button-height': '40px',
+              '@link-button-font-size': '14px',
+              '@modal-button-font-size': '14px', // 按钮字号
+              '@modal-button-height': '40px', // 按钮高度
+              '@radius-lg': '14px',
             },
           },
         }
