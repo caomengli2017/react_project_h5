@@ -1,7 +1,7 @@
+import { Progress } from 'antd-mobile';
 import React, { FC, Suspense, useMemo } from 'react';
 import { Switch, useHistory, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { LinearProgress } from '@material-ui/core';
 import './index.less';
 
 const PREFIX = 'f-route';
@@ -19,7 +19,7 @@ const FRouteView: FC<IFRouteViewProps> = ({ children, animation = false }) => {
   const suspenseSpin = useMemo(() => {
     return (
       <div className="spin">
-        <LinearProgress />
+        <Progress position="fixed" percent={30} />
       </div>
     );
   }, []);

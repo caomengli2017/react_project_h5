@@ -1,16 +1,10 @@
 import React, { useMemo } from 'react';
 import './App.less';
-import {
-  FIntlProvider,
-  FNotistackWrapper,
-  FRouteView,
-  FThemeProvider,
-} from './component';
+import { FIntlProvider, FRouteView } from './component';
 import history from './router/route-root';
 import { ConnectedRouter } from 'connected-react-router';
 import constantsRoutes from './router/route-config';
 import { buildRouteNode } from './router/route-tool';
-import { Box } from '@material-ui/core';
 
 const App = () => {
   const routes = useMemo(() => {
@@ -22,15 +16,11 @@ const App = () => {
   }, []);
 
   return (
-    <Box className="App">
+    <div className="App">
       <ConnectedRouter history={history}>
-        <FThemeProvider>
-          <FNotistackWrapper>
-            <FIntlProvider>{routes}</FIntlProvider>
-          </FNotistackWrapper>
-        </FThemeProvider>
+        <FIntlProvider>{routes}</FIntlProvider>
       </ConnectedRouter>
-    </Box>
+    </div>
   );
 };
 

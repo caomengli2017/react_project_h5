@@ -1,20 +1,18 @@
-import { Box, Button, Container } from '@material-ui/core';
+import { Button, WhiteSpace, WingBlank } from 'antd-mobile';
 import React from 'react';
 import { useHistory } from 'react-router';
 
 const DemoPage = () => {
   const history = useHistory();
   return (
-    <Box width={'100%'} height={'100%'} bgcolor="assist.green">
-      <Button
-        color="secondary"
-        variant="contained"
-        onClick={() => history.push('/page1')}
-      >
-        前往
-      </Button>
-      <Container fixed>123</Container>
-    </Box>
+    <div style={{ width: '100%' }}>
+      <WingBlank>
+        <WhiteSpace />
+        <Button type="primary" onClick={() => history.push('/page1')}>
+          前往
+        </Button>
+      </WingBlank>
+    </div>
   );
 };
 
