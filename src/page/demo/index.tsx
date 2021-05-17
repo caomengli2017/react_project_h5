@@ -12,6 +12,10 @@ const DemoPage = () => {
           前往
         </Button>
         <WhiteSpace />
+        <Button type="primary" onClick={() => history.push('/purchase-list')}>
+          前往商品列表
+        </Button>
+        <WhiteSpace />
         <Button
           type="primary"
           onClick={() => {
