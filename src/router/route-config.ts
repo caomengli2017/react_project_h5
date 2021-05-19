@@ -31,5 +31,29 @@ const constantsRoutes: IRouteConfigs[] = [
     exact: true,
     auth: false,
   },
+  {
+    path: '/collection-assistant',
+    component: 'checkstand/collection-assistant',
+    exact: true,
+    auth: false,
+  },
+  {
+    path: '/collection-records',
+    component: 'checkstand/collection-records',
+    exact: true,
+    auth: false,
+  },
+  {
+    path: '/collection-details',
+    component: 'checkstand/collection-details',
+    exact: true,
+    auth: false,
+  },
+  {
+    path: '/custom-query',
+    component: 'checkstand/custom-query',
+    exact: true,
+    auth: false,
+  },
 ];
 export default constantsRoutes;
