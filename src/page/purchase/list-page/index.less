@@ -2,4 +2,53 @@
 
 .@{prefix}{
   width: 100%;
+  .am-list-body{
+    background: transparent;
+    &::after{
+      background-color: transparent !important;
+    }
+  }
+  &-item{
+    width: 100%;
+    display: flex;
+    padding: 3.2vw;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-top: 8px;
+    &-img{
+      width: 32vw;
+      height: 32vw;
+      display: flex;
+      align-items: center;
+      >img{
+        width: 100%;
+      }
+    }
+    &-main{
+      flex: 1;
+      margin-left: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &-title{
+        font-size: 14px;
+        color: #111;
+        font-weight: 400;
+      }
+      &-price{
+        display: flex;
+        justify-content: space-between;
+        >strong{
+          color: #FF5000;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        >span{
+          background-color: #F4F4F6;
+          padding: 5px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
 }

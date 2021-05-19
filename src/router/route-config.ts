@@ -19,12 +19,12 @@ const constantsRoutes: IRouteConfigs[] = [
     exact: true,
     auth: false,
   },
-  // {
-  //   path: '/404',
-  //   component: 'system/not-found/index.tsx',
-  //   exact: true,
-  //   auth: false,
-  // },
+  {
+    path: '/purchase-details',
+    component: 'purchase/details-page',
+    exact: true,
+    auth: false,
+  },
   {
     path: '/goods-list',
     component: 'purchase/goods-list',

@@ -6,3 +6,11 @@ export interface IRouteConfigs
   auth: boolean;
   children?: IRouteConfigs[];
 }
+
+export interface IPageRes<T = any> {
+  total: number;
+  list: T[];
+  page: number;
+  size: number;
+  totalPage: number;
+}

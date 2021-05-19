@@ -7,21 +7,20 @@ import FPullToRefresh from '../FPullToRefresh';
 import { LoadingOutlined } from '@ant-design/icons';
 import HttpApi, { BaseHttpModel } from '@src/utils/https';
 import _ from 'lodash';
+import { IPageRes } from '@src/types/system';
 
 interface IFListViewProps<T = any> {
   queryApi: ((data: any) => Promise<BaseHttpModel<IPageRes<T>>>) | string;
   row: (rowData: T, sectionID: any, rowID: any) => React.ReactElement;
+  initialParam?: {
+    [key: string]: any;
+  };
 }
-interface IPageRes<T = any> {
-  total: number;
-  list: T[];
-  page: number;
-  size: number;
-  totalPage: number;
-}
+
 const FListView = <T extends unknown>({
   queryApi,
   row,
+  initialParam,
 }: IFListViewProps<T>) => {
   const ref = useRef(null);
   const [state, dispatch] = useReducer(FListViewReducer, {
@@ -43,11 +42,11 @@ const FListView = <T extends unknown>({
     let promise: Promise<BaseHttpModel<IPageRes<T>>>;
 
     if (_.isFunction(queryApi)) {
-      promise = queryApi(queryParams.current);
+      promise = queryApi({ ...queryParams.current, ...initialParam });
     } else {
       promise = HttpApi.request<IPageRes<T>>({
         url: queryApi as string,
-        params: queryParams.current,
+        params: { ...queryParams.current, ...initialParam },
       });
     }
     promise
@@ -114,6 +113,7 @@ const FListView = <T extends unknown>({
       renderBodyComponent={() => <MyBody />}
       style={{
         height: state.height,
+        background: 'transparent',
       }}
       renderRow={row}
       pullToRefresh={

@@ -1,5 +1,5 @@
-import user from './user';
+import rootPurchase from './purchase';
 
 export default function* rootSage() {
-  yield* [...user];
+  yield* [...rootPurchase];
 }

@@ -10,8 +10,7 @@ import './index.less';
 
 switch (process.env.REACT_APP_ENV) {
   case 'local':
-    //mock数据
-    HttpApi.baseURL = 'http://localhost:3000';
+    HttpApi.baseURL = 'http://vifunapi-test.baiweietech.com';
     break;
   case 'dev':
     HttpApi.baseURL = 'http://localhost:8090';

@@ -1,12 +1,25 @@
 import { Toast } from 'antd-mobile';
 import Axios from 'axios';
+import store from '@src/redux/store';
 
 const axios = Axios.create();
 
 axios.interceptors.request.use((value) => {
+  const {
+    // login,
+    accessToken = '12b2850042302c36cefe2bde35b817e1',
+    uuid = 'f9505ff0-cb82-4f43-843f-a3389ca7308b',
+  } = store.getState().user;
+
+  value.headers['lang'] = 'cn';
+  // if (login) {
   value.headers = {
-    device: 'web',
+    ...value.headers,
+    accessToken,
+    uuid,
   };
+  // }
+
   return value;
 });
 

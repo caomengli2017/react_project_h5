@@ -1,9 +1,9 @@
+import { IUserModel } from '@src/types/model/user';
 export type IUserReducer = {
-  username: string;
   loading: boolean;
   login: boolean;
   error?: {
     code: number;
     msg: string;
   };
-};
+} & Partial<IUserModel>;
