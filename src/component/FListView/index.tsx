@@ -72,9 +72,9 @@ const FListView = <T extends unknown>({
   useLayoutEffect(() => {
     const hei =
       document.documentElement.clientHeight -
-      (ReactDOM.findDOMNode(
-        ref.current
-      )! as HTMLDivElement).getBoundingClientRect().top;
+      (
+        ReactDOM.findDOMNode(ref.current)! as HTMLDivElement
+      ).getBoundingClientRect().top;
     dispatch({ height: hei });
   }, []);
 

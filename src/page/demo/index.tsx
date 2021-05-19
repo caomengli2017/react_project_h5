@@ -18,6 +18,13 @@ const DemoPage = () => {
         <WhiteSpace />
         <Button
           type="primary"
+          onClick={() => history.push('/collection-assistant')}
+        >
+          前往收银台销售助手
+        </Button>
+        <WhiteSpace />
+        <Button
+          type="primary"
           onClick={() => {
             Modal.alert(
               null,

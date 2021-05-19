@@ -26,12 +26,6 @@ const constantsRoutes: IRouteConfigs[] = [
     auth: false,
   },
   {
-    path: '/goods-list',
-    component: 'purchase/goods-list',
-    exact: true,
-    auth: false,
-  },
-  {
     path: '/collection-assistant',
     component: 'checkstand/collection-assistant',
     exact: true,

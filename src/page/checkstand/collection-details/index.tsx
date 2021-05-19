@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Flex, NavBar, WhiteSpace, WingBlank } from 'antd-mobile';
+import { Flex, Icon, NavBar, WhiteSpace, WingBlank } from 'antd-mobile';
 import { useHistory } from 'react-router';
 import './index.less';
 const PREFIX = 'collection-details';
@@ -16,7 +16,7 @@ const CollectionDetailsPage = () => {
     <div style={{ width: '100%' }} className={`${PREFIX}`}>
       <NavBar
         mode="light"
-        icon={<i className="icon iconfont icon-fanhui"></i>}
+        icon={<Icon type="left" />}
         onLeftClick={() => history.goBack()}
       >
         交易详情

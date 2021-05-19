@@ -5,8 +5,10 @@
  */
 import React, { useState } from 'react';
 import {
+  Button,
   DatePicker,
   Flex,
+  Icon,
   List,
   NavBar,
   WhiteSpace,
@@ -15,6 +17,8 @@ import {
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import './index.less';
+import { FListView } from '@src/component';
+import { getDateCollectionList } from '@src/apis/checkstand';
 const PREFIX = 'custom-query';
 const CustomQueryPage = () => {
   const history = useHistory();
@@ -32,13 +36,13 @@ const CustomQueryPage = () => {
     <div style={{ width: '100%' }} className={`${PREFIX}`}>
       <NavBar
         mode="light"
-        icon={<i className="icon iconfont icon-fanhui"></i>}
+        icon={<Icon type="left" />}
         onLeftClick={() => history.goBack()}
       >
         自定义查询
       </NavBar>
       <WhiteSpace />
-      <WingBlank>
+      <WingBlank className={`${PREFIX}-date`}>
         <ul className="custom-time">
           {queryModeList.map((item) => (
             <li
@@ -59,9 +63,32 @@ const CustomQueryPage = () => {
             <List.Item>结束时间</List.Item>
           </DatePicker>
         </List>
+        <Button type="primary" className="query-btn">
+          查询
+        </Button>
       </WingBlank>
       <WhiteSpace />
-      <WingBlank>aflafjkla</WingBlank>
+      <WingBlank>
+        <div className={`${PREFIX}-total-amount`}>
+          <span>5笔收款</span>
+          <span>合计 ¥3147.00</span>
+        </div>
+        <FListView
+          queryApi={getDateCollectionList}
+          initialParam={{}}
+          row={(data, sectionId, rowId) => (
+            <Link to="/collection-details">
+              <Flex justify="between" className="records-item">
+                <div>
+                  <p>交易收款</p>
+                  <p className="time">12:09:34</p>
+                </div>
+                <p className="money">89.00</p>
+              </Flex>
+            </Link>
+          )}
+        />
+      </WingBlank>
     </div>
   );
 };
