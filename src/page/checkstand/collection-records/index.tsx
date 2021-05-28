@@ -16,11 +16,7 @@ const CollectionRecordsPage = () => {
 
   return (
     <div style={{ width: '100%' }} className={`${PREFIX}`}>
-      <NavBar
-        mode="light"
-        icon={<Icon type="left" />}
-        onLeftClick={() => history.goBack()}
-      >
+      <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()}>
         收款记录
       </NavBar>
       <WhiteSpace />

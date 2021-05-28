@@ -17,11 +17,7 @@ interface IFListViewProps<T = any> {
   };
 }
 const PREFIX = 'f-list-view';
-const FListView = <T extends unknown>({
-  queryApi,
-  row,
-  initialParam,
-}: IFListViewProps<T>) => {
+const FListView = <T extends unknown>({ queryApi, row, initialParam }: IFListViewProps<T>) => {
   const ref = useRef(null);
   const [state, dispatch] = useReducer(FListViewReducer, {
     dataSource: new ListView.DataSource({
@@ -74,9 +70,7 @@ const FListView = <T extends unknown>({
     if (ref.current) {
       const hei =
         document.documentElement.clientHeight -
-        (
-          ReactDOM.findDOMNode(ref.current)! as HTMLDivElement
-        ).getBoundingClientRect().top;
+        (ReactDOM.findDOMNode(ref.current)! as HTMLDivElement).getBoundingClientRect().top;
       dispatch({ height: hei });
     }
   }, []);
@@ -125,11 +119,7 @@ const FListView = <T extends unknown>({
       }}
       renderRow={row}
       pullToRefresh={
-        <FPullToRefresh
-          dirction="down"
-          refreshing={state.refreshing}
-          onRefresh={onRefresh}
-        />
+        <FPullToRefresh dirction="down" refreshing={state.refreshing} onRefresh={onRefresh} />
       }
       onEndReached={onEndReached}
       onEndReachedThreshold={20}

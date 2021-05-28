@@ -14,11 +14,7 @@ const CollectionDetailsPage = () => {
 
   return (
     <div style={{ width: '100%' }} className={`${PREFIX}`}>
-      <NavBar
-        mode="light"
-        icon={<Icon type="left" />}
-        onLeftClick={() => history.goBack()}
-      >
+      <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()}>
         交易详情
       </NavBar>
       <WhiteSpace />

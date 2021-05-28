@@ -5,16 +5,7 @@
  */
 
 import React, { useState } from 'react';
-import {
-  Button,
-  DatePicker,
-  Flex,
-  Icon,
-  List,
-  NavBar,
-  WhiteSpace,
-  WingBlank,
-} from 'antd-mobile';
+import { Button, DatePicker, Flex, Icon, List, NavBar, WhiteSpace, WingBlank } from 'antd-mobile';
 import { useHistory } from 'react-router';
 import './index.less';
 import { FListView } from '@src/component';
@@ -35,11 +26,7 @@ const CustomQueryPage = () => {
 
   return (
     <div style={{ width: '100%' }} className={`${PREFIX}`}>
-      <NavBar
-        mode="light"
-        icon={<Icon type="left" />}
-        onLeftClick={() => history.goBack()}
-      >
+      <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()}>
         自定义查询
       </NavBar>
       <WhiteSpace />
