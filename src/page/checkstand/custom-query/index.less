@@ -1,0 +1,80 @@
+@prefix: custom-query;
+.@{prefix} {
+  &-date {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .custom-time {
+    margin-bottom: 16px;
+    li {
+      background-color: #f4f4f6;
+      padding: 8px 16px;
+      font-size: 13px;
+      border-radius: 15px;
+      margin-right: 16px;
+      display: inline-block;
+      list-style: none;
+      &.active {
+        background-color: #ffeee6;
+        color: #ff5000;
+      }
+    }
+  }
+  .label {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 8px;
+  }
+  .time-picker-list {
+    .am-list-body,
+    .am-list-item {
+      background-color: #fff;
+    }
+    .am-list-body::before,
+    .am-list-body::after,
+    .am-list-line::after {
+      display: none !important;
+    }
+    .am-list-item {
+      padding-left: 0;
+    }
+    .am-list-content,
+    .am-list-extra {
+      font-size: 14px;
+    }
+  }
+  .query-btn {
+    margin-top: 16px;
+    border-radius: 20px;
+    background-color: #111;
+  }
+  .am-list-body {
+    background-color: transparent;
+  }
+  &-total-amount {
+    font-weight: 600;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 8px 8px 0 0;
+    span:first-child {
+      margin-right: 16px;
+    }
+  }
+  .records-item {
+    border-top: 1px solid #eeeeee;
+    padding: 12px 16px;
+    background-color: #fff;
+    border-radius: 0 0 8px 8px;
+    .time {
+      font-size: 12px;
+      color: #999;
+      margin-top: 4px;
+    }
+    .money {
+      color: #ff5000;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}

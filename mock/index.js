@@ -52,6 +52,48 @@ const proxy = {
       },
     });
   },
+  'POST /collection/all/list': (req, res) => {
+    return res.send({
+      code: 10000,
+      data: {
+        page: 1,
+        total: 18,
+        perPage: '10',
+        totalPage: 2,
+        list: [
+          {
+            id: 1,
+            date: '2020-03-23',
+          },
+          {
+            id: 2,
+            date: '2020-03-23',
+          },
+        ],
+      },
+    });
+  },
+  'POST /collection/date/list': (req, res) => {
+    return res.send({
+      code: 10000,
+      data: {
+        page: 1,
+        total: 18,
+        perPage: '10',
+        totalPage: 2,
+        list: [
+          {
+            id: 1,
+            date: '2020-03-23',
+          },
+          {
+            id: 2,
+            date: '2020-03-23',
+          },
+        ],
+      },
+    });
+  },
 };
 
 module.exports = proxy;
