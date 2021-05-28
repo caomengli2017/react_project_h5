@@ -122,7 +122,8 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --single-quote --write"
+      "eslint --fix --ext .ts,.tsx",
+      "prettier --write"
     ]
   },
   "browserslist": {

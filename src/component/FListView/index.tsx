@@ -89,7 +89,6 @@ const FListView = <T extends unknown>({ queryApi, row, initialParam }: IFListVie
     dispatch({ isLoading: true });
     query();
   };
-  console.log(state.hasMore);
   if (state.hasMore === false && rData.current.length === 0)
     return (
       <div className={`${PREFIX}-empty`}>
