@@ -25,9 +25,7 @@ const PREFIX = 'f-purchase-list';
 
 const PurchaseListPage = () => {
   const history = useHistory();
-  const { brands, shoppingCart } = useSelector(
-    (state: IRootState) => state.purchase
-  );
+  const { brands, shoppingCart } = useSelector((state: IRootState) => state.purchase);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBrandsListAction());

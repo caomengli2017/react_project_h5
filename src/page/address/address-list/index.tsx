@@ -15,11 +15,7 @@ const AddressListPage = () => {
   const dispatch = useDispatch();
   return (
     <div className={PREFIX}>
-      <NavBar
-        mode="light"
-        icon={<Icon type="left" />}
-        onLeftClick={() => history.goBack()}
-      >
+      <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()}>
         收货地址
       </NavBar>
       <div className={`${PREFIX}-body`}>

@@ -23,8 +23,7 @@ const FIntlProvider: FC<IFIntlProviderProps> = ({ children }) => {
   const suspenseSpin = useMemo(() => {
     return <div className="f-intl-spin"></div>;
   }, []);
-  if (initDone === false)
-    return <React.Fragment>{suspenseSpin}</React.Fragment>;
+  if (initDone === false) return <React.Fragment>{suspenseSpin}</React.Fragment>;
   return <React.Fragment>{children}</React.Fragment>;
 };
 

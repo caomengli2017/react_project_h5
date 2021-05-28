@@ -1,6 +1,7 @@
 import { Button, Modal, WhiteSpace, WingBlank } from 'antd-mobile';
 import React from 'react';
 import { useHistory } from 'react-router';
+import bridgeJs from '@src/utils/bridge';
 
 const DemoPage = () => {
   const history = useHistory();
@@ -8,8 +9,13 @@ const DemoPage = () => {
     <div style={{ width: '100%' }}>
       <WingBlank>
         <WhiteSpace />
-        <Button type="primary" onClick={() => history.push('/page1')}>
-          前往
+        <Button
+          type="primary"
+          onClick={() => {
+            bridgeJs.Core.callNativeHandler({ actionName: 'abc' });
+          }}
+        >
+          安卓测试
         </Button>
         <WhiteSpace />
         <Button type="primary" onClick={() => history.push('/purchase-list')}>
@@ -24,10 +30,7 @@ const DemoPage = () => {
           前往订单页面
         </Button>
         <WhiteSpace />
-        <Button
-          type="primary"
-          onClick={() => history.push('/address-list-page')}
-        >
+        <Button type="primary" onClick={() => history.push('/address-list-page')}>
           前往地址页面
         </Button>
         <WhiteSpace />
@@ -36,10 +39,7 @@ const DemoPage = () => {
         </Button>
 
         <WhiteSpace />
-        <Button
-          type="primary"
-          onClick={() => history.push('/collection-assistant')}
-        >
+        <Button type="primary" onClick={() => history.push('/collection-assistant')}>
           前往收银台销售助手
         </Button>
         <WhiteSpace />
@@ -65,10 +65,7 @@ const DemoPage = () => {
               <div>
                 <p>消息消息消息消息消息</p>
               </div>,
-              [
-                { text: 'Cancel', onPress: () => console.log('cancel') },
-                { text: 'Ok', onPress: () => console.log('ok') },
-              ]
+              [{ text: 'Cancel' }, { text: 'Ok' }]
             );
           }}
         >

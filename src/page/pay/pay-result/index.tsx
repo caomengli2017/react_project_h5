@@ -14,11 +14,7 @@ const PayResultPage = () => {
   const data: IPayResultModal = JSON.parse(res.data as string);
   return (
     <div className={PREFIX}>
-      <NavBar
-        mode="light"
-        icon={<Icon type="left" />}
-        onLeftClick={() => history.goBack()}
-      >
+      <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()}>
         收银台
       </NavBar>
       <div className={`${PREFIX}-body`}>
@@ -63,14 +59,7 @@ type IResultViewProps = {
   method: string;
   onClick(): void;
 };
-const ResultView = ({
-  icon,
-  name,
-  msg,
-  money,
-  method,
-  onClick,
-}: IResultViewProps) => {
+const ResultView = ({ icon, name, msg, money, method, onClick }: IResultViewProps) => {
   return (
     <div className={`${PREFIX}-result`}>
       <img src={require(`../../../assets/img/${icon}.png`)} alt="icon" />

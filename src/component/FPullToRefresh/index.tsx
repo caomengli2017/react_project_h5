@@ -1,11 +1,7 @@
 import { PullToRefresh } from 'antd-mobile';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import {
-  LoadingOutlined,
-  ArrowDownOutlined,
-  ArrowUpOutlined,
-} from '@ant-design/icons';
+import { LoadingOutlined, ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
 import './index.less';
 
 interface IFPullToRefresh {

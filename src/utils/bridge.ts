@@ -15,25 +15,12 @@
  * VaffleGotoStoreBridgeKey 前往新增店铺
  * vaffleSavedPhotosToAlbum 下载图片保存到相册 url
  */
-type IBridgeKeys =
-  | 'vaffleBackToNative'
-  | 'VaffleShareBridgeKey'
-  | 'vaffleNavigationBarChanged'
-  | 'examPassResultKey'
-  | 'VaffleGotoQAListBridgeKey'
-  | 'VaffleGroupDetailBridgeKey'
-  | 'vaffleMemberCenter'
-  | 'VaffleMemberCenterBridgeKey'
-  | 'VaffleEditProfileBridgeKey'
-  | 'VaffleQABridgeKey'
-  | 'VaffleSigninBridgeKey'
-  | 'VaffleGotoStoreBridgeKey'
-  | 'vaffleSavedPhotosToAlbum'
-  | 'vaffleSavedPhotosToAlbumSuccess'
-  | 'vaffleSavedPhotosToAlbumFailure';
+// type IBridgeKeys = {
+//   [key: string]: any;
+// };
 
 interface ICallNativeHandlerProp {
-  actionName: IBridgeKeys;
+  actionName: string;
   actionArgs?: {
     [key: string]: any;
   }[];

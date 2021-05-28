@@ -82,7 +82,7 @@ const ShoppingCartPage = () => {
             style={{ fontSize: 20 }}
             onClick={() => {
               Modal.alert('清空购物车', '您确定要清空购物车的所有商品吗？', [
-                { text: '取消', onPress: () => console.log('cancel') },
+                { text: '取消' },
                 {
                   text: '确定',
                   onPress: () => {
@@ -152,9 +152,7 @@ const ShoppingCartPage = () => {
         <footer className={`${PREFIX}-footer`}>
           <div>
             <Checkbox
-              checked={
-                _.flattenDeep(select).length === _.flattenDeep(list).length
-              }
+              checked={_.flattenDeep(select).length === _.flattenDeep(list).length}
               onChange={(e) => {
                 if (e.target.checked) {
                   setSelect(_.cloneDeep(list));
@@ -195,14 +193,7 @@ type IGoodsViewProps = {
   onAddNum?(e: IValues): void;
 };
 const GoodsView = memo(
-  ({
-    data,
-    value = [],
-    onChange,
-    disabled,
-    onDelete,
-    onAddNum,
-  }: IGoodsViewProps) => {
+  ({ data, value = [], onChange, disabled, onDelete, onAddNum }: IGoodsViewProps) => {
     const list = useMemo(() => {
       return data?.products.map((e) => e.id) ?? [];
     }, [data]);

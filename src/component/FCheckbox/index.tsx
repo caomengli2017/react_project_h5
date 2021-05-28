@@ -38,9 +38,7 @@ const FCheckbox: FC<IFCheckboxProps> = ({
       >
         <div className={`${PREFIX}-main`}>
           <div className={`${PREFIX}-main-left`}>
-            {!disabled && (
-              <Checkbox checked={checked} onChange={handleChange} />
-            )}
+            {!disabled && <Checkbox checked={checked} onChange={handleChange} />}
           </div>
           <div className={`${PREFIX}-main-right`}>{children}</div>
         </div>

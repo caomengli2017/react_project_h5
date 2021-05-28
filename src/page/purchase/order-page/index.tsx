@@ -1,28 +1,12 @@
-import {
-  Button,
-  Icon,
-  List,
-  Modal,
-  NavBar,
-  Picker,
-  TextareaItem,
-} from 'antd-mobile';
+import { Button, Icon, List, Modal, NavBar, Picker, TextareaItem } from 'antd-mobile';
 import React, { memo, useEffect, useMemo, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './index.less';
 import { RightOutlined } from '@ant-design/icons';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { FSpecItem } from '@src/component';
-import {
-  createOrder,
-  getOrderInfo,
-  getPayMethodsList,
-} from '@src/apis/purchase';
-import {
-  AvailableItem,
-  ICartListModal,
-  Total,
-} from '@src/types/model/purchase';
+import { createOrder, getOrderInfo, getPayMethodsList } from '@src/apis/purchase';
+import { AvailableItem, ICartListModal, Total } from '@src/types/model/purchase';
 import { useSelector } from 'react-redux';
 import { IRootState } from '@src/redux/reducers';
 import { PickerData } from 'antd-mobile/lib/picker/PropsType';
@@ -72,11 +56,7 @@ const OrderPage = () => {
   };
   return (
     <div className={PREFIX}>
-      <NavBar
-        mode="light"
-        icon={<Icon type="left" />}
-        onLeftClick={() => history.goBack()}
-      >
+      <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()}>
         确认订单
       </NavBar>
       <div className={`${PREFIX}-body`}>
@@ -108,10 +88,7 @@ type IAddressViewProp = {
 const AddressView = ({ address }: IAddressViewProp) => {
   const history = useHistory();
   return (
-    <div
-      className={`${PREFIX}-address`}
-      onClick={() => history.push('/address-list-page')}
-    >
+    <div className={`${PREFIX}-address`} onClick={() => history.push('/address-list-page')}>
       <span className={`${PREFIX}-address-dec`}></span>
       <div className={`${PREFIX}-address-body`}>
         {address && (
@@ -202,9 +179,7 @@ const GoodsView = memo(({ data }: IGoodsViewProps) => {
                 <FSpecItem
                   key={item.identifier}
                   data={_data}
-                  rightNode={(e) => (
-                    <span style={{ fontSize: 13, fontWeight: 600 }}>x30</span>
-                  )}
+                  rightNode={(e) => <span style={{ fontSize: 13, fontWeight: 600 }}>x30</span>}
                 />
               );
             })}

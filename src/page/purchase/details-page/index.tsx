@@ -6,11 +6,7 @@ import './index.less';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { useHistory, useParams } from 'react-router';
 import { addCart, getGoodsDetails } from '@src/apis/purchase';
-import {
-  GoodsImage,
-  IGoodsDetailsModal,
-  IProduct,
-} from '@src/types/model/purchase';
+import { GoodsImage, IGoodsDetailsModal, IProduct } from '@src/types/model/purchase';
 import { FSpecItem } from '@src/component';
 import { useSelector, useDispatch } from 'react-redux';
 import { IRootState } from '@src/redux/reducers';
@@ -50,11 +46,7 @@ const PurchaseDetailsPage = () => {
   };
   return (
     <div className={PREFIX}>
-      <NavBar
-        mode="light"
-        icon={<Icon type="left" />}
-        onLeftClick={() => history.goBack()}
-      >
+      <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()}>
         商品详情
       </NavBar>
       <div className={`${PREFIX}-body`}>
@@ -67,10 +59,7 @@ const PurchaseDetailsPage = () => {
             </span>
           </p>
         </div>
-        <SpecView
-          products={data?.products}
-          onChange={(e) => (specNum.current = e)}
-        />
+        <SpecView products={data?.products} onChange={(e) => (specNum.current = e)} />
         {data?.desc && (
           <div className={`${PREFIX}-details`}>
             <h3>商品详情</h3>
@@ -80,10 +69,7 @@ const PurchaseDetailsPage = () => {
       </div>
 
       <div className={`${PREFIX}-btns`}>
-        <div
-          className={`${PREFIX}-btns-shop`}
-          onClick={() => history.push('/car-page')}
-        >
+        <div className={`${PREFIX}-btns-shop`} onClick={() => history.push('/car-page')}>
           <Badge hot text={shoppingCart}>
             <ShoppingCartOutlined style={{ fontSize: 25 }} />
           </Badge>
@@ -112,10 +98,7 @@ const CarouselView = ({ imgUrl }: ICarouselViewProps) => {
         >
           {imgUrl?.map((val, index) => (
             <div key={index} className={`${PREFIX}-carousel-box`}>
-              <LazyLoadImage
-                placeholderSrc={'https://via.placeholder.com/375'}
-                src={val.image}
-              />
+              <LazyLoadImage placeholderSrc={'https://via.placeholder.com/375'} src={val.image} />
             </div>
           ))}
         </Carousel>

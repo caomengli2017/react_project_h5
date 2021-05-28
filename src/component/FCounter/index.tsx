@@ -17,13 +17,7 @@ interface IFCounterProps {
   disable?: boolean;
 }
 const PREFIX = 'f-counter';
-const FCounter = ({
-  value,
-  onChange,
-  max = 100,
-  min = 0,
-  disable,
-}: IFCounterProps) => {
+const FCounter = ({ value, onChange, max = 100, min = 0, disable }: IFCounterProps) => {
   const [current, { inc, dec, set }] = useCounter(0, {
     min: min,
     max: max,

@@ -12,52 +12,46 @@ interface IFSpecItemProps {
   data: IProduct;
   onChange?(e: { id: number | string; num: number }): void;
 }
-const FSpecItem = memo(
-  ({ disabled, rightNode, data, onChange }: IFSpecItemProps) => {
-    const spec = useCallback((val: ISpec[]) => {
-      return val.map((e) => `${e.v}/${e.k}`).join(' ');
-    }, []);
-    return (
-      <div className={PREFIX}>
-        {data.image && (
-          <div className={`${PREFIX}-left`}>
-            <LazyLoadImage
-              width={'100%'}
-              height={'100%'}
-              placeholderSrc={'https://via.placeholder.com/56'}
-              src={data.image}
-            />
-          </div>
-        )}
-        <div className={`${PREFIX}-center`}>
-          <div className={classNames({ disabled: disabled })}>
-            {spec(data.specs)}
-          </div>
-          <div className={classNames({ disabled: disabled })}>
-            SKU {data.bn}
-          </div>
-          <div>
-            <span className={classNames({ disabled: disabled })}>
-              {data.price.sign} {data.price.value}
-            </span>
-          </div>
+const FSpecItem = memo(({ disabled, rightNode, data, onChange }: IFSpecItemProps) => {
+  const spec = useCallback((val: ISpec[]) => {
+    return val.map((e) => `${e.v}/${e.k}`).join(' ');
+  }, []);
+  return (
+    <div className={PREFIX}>
+      {data.image && (
+        <div className={`${PREFIX}-left`}>
+          <LazyLoadImage
+            width={'100%'}
+            height={'100%'}
+            placeholderSrc={'https://via.placeholder.com/56'}
+            src={data.image}
+          />
         </div>
-        <div className={`${PREFIX}-right`}>
-          {rightNode ? (
-            rightNode()
-          ) : (
-            <FCounter
-              disable={disabled}
-              value={data.quantity}
-              onChange={(num) => {
-                onChange && onChange({ id: data.id, num });
-              }}
-            />
-          )}
+      )}
+      <div className={`${PREFIX}-center`}>
+        <div className={classNames({ disabled: disabled })}>{spec(data.specs)}</div>
+        <div className={classNames({ disabled: disabled })}>SKU {data.bn}</div>
+        <div>
+          <span className={classNames({ disabled: disabled })}>
+            {data.price.sign} {data.price.value}
+          </span>
         </div>
       </div>
-    );
-  }
-);
+      <div className={`${PREFIX}-right`}>
+        {rightNode ? (
+          rightNode()
+        ) : (
+          <FCounter
+            disable={disabled}
+            value={data.quantity}
+            onChange={(num) => {
+              onChange && onChange({ id: data.id, num });
+            }}
+          />
+        )}
+      </div>
+    </div>
+  );
+});
 
 export default FSpecItem;

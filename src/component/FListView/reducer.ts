@@ -7,13 +7,8 @@ export type IListViewState<T = any> = {
   height: number;
   hasMore: boolean;
 };
-export type IListViewAction =
-  | ((e: IListViewState) => IListViewState)
-  | Partial<IListViewState>;
-export const FListViewReducer = (
-  state: IListViewState,
-  action: IListViewAction
-) => {
+export type IListViewAction = ((e: IListViewState) => IListViewState) | Partial<IListViewState>;
+export const FListViewReducer = (state: IListViewState, action: IListViewAction) => {
   if (_.isFunction(action)) {
     return { ...state, ...action(state) };
   }

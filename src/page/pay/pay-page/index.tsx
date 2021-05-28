@@ -94,11 +94,7 @@ const PayPage = () => {
   };
   return (
     <div className={PREFIX}>
-      <NavBar
-        mode="light"
-        icon={<Icon type="left" />}
-        onLeftClick={() => history.goBack()}
-      >
+      <NavBar mode="light" icon={<Icon type="left" />} onLeftClick={() => history.goBack()}>
         收银台
       </NavBar>
       <div className={`${PREFIX}-body`}>
@@ -133,11 +129,7 @@ const PayPage = () => {
       </div>
       <footer className={`${PREFIX}-footer`}>
         <div>
-          <Button
-            style={{ backgroundColor: '#111' }}
-            type="primary"
-            onClick={handlePay}
-          >
+          <Button style={{ backgroundColor: '#111' }} type="primary" onClick={handlePay}>
             支付
           </Button>
         </div>

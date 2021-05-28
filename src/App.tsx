@@ -8,11 +8,7 @@ import { buildRouteNode } from './router/route-tool';
 
 const App = () => {
   const routes = useMemo(() => {
-    return (
-      <FRouteView animation={true}>
-        {buildRouteNode(constantsRoutes)}
-      </FRouteView>
-    );
+    return <FRouteView animation={true}>{buildRouteNode(constantsRoutes)}</FRouteView>;
   }, []);
 
   return (
