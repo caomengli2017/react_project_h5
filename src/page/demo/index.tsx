@@ -16,7 +16,7 @@ const DemoPage = () => {
           onClick={() => {
             bridgeJs.Core.callNativeHandler({
               actionName: 'nativeRouterPush',
-              actionArgs: ['CheckSendPackageActivity'],
+              actionArgs: [{ path: 'CheckSendPackageActivity' }],
             });
           }}
         >
