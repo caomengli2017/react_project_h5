@@ -21,9 +21,7 @@
 
 interface ICallNativeHandlerProp {
   actionName: string;
-  actionArgs?: {
-    [key: string]: any;
-  }[];
+  actionArgs?: any[];
   successCallback?: (e: any) => void;
   failCallback?: (e: any) => void;
 }
@@ -114,7 +112,7 @@ ZHBridge.Core = (function () {
       if (actionArgs && actionArgs.length > 0) {
         window.androidObject &&
           window.androidObject[actionName] &&
-          window.androidObject[actionName](JSON.stringify(actionArgs[0]));
+          window.androidObject[actionName](JSON.stringify(actionArgs));
       } else {
         window.androidObject &&
           window.androidObject[actionName] &&

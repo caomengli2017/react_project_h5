@@ -2,9 +2,11 @@ import { Button, Modal, WhiteSpace, WingBlank } from 'antd-mobile';
 import React from 'react';
 import { useHistory } from 'react-router';
 import bridgeJs from '@src/utils/bridge';
+import Cookies from 'js-cookie';
 
 const DemoPage = () => {
   const history = useHistory();
+
   return (
     <div style={{ width: '100%' }}>
       <WingBlank>
@@ -12,7 +14,10 @@ const DemoPage = () => {
         <Button
           type="primary"
           onClick={() => {
-            bridgeJs.Core.callNativeHandler({ actionName: 'abc' });
+            bridgeJs.Core.callNativeHandler({
+              actionName: 'abc',
+              actionArgs: ['CheckSendPackageActivity'],
+            });
           }}
         >
           安卓测试
@@ -71,6 +76,8 @@ const DemoPage = () => {
         >
           弹窗2
         </Button>
+        <WhiteSpace />
+        <p>{Cookies.get('uuid')}</p>
       </WingBlank>
     </div>
   );
