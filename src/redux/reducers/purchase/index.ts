@@ -1,10 +1,6 @@
 // import { IUserAction } from '../../actions/user';
 import { IPurchaseAction, IpurchaseReducer } from '@src/types/model/purchase';
-import {
-  SET_BRANDS_LIST,
-  SET_SHOPPING_CART,
-  SET_ADDRESS,
-} from '../../constants/purchaseConstant';
+import { SET_BRANDS_LIST, SET_SHOPPING_CART, SET_ADDRESS } from '../../constants/purchaseConstant';
 
 const localState = localStorage.getItem('PURCHASE');
 const initState: IpurchaseReducer = localState
@@ -14,10 +10,7 @@ const initState: IpurchaseReducer = localState
       shoppingCart: 0,
     };
 
-const purchaseReducer = (
-  state = initState,
-  action: IPurchaseAction
-): IpurchaseReducer => {
+const purchaseReducer = (state = initState, action: IPurchaseAction): IpurchaseReducer => {
   switch (action.type) {
     case SET_BRANDS_LIST:
       return { ...state, brands: action.data };

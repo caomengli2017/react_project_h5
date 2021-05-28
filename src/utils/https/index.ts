@@ -3,13 +3,7 @@ import { AxiosRequestConfig } from 'axios';
 import axios from './axios';
 
 export type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
-export type ResponseType =
-  | 'arraybuffer'
-  | 'blob'
-  | 'document'
-  | 'json'
-  | 'text'
-  | 'stream';
+export type ResponseType = 'arraybuffer' | 'blob' | 'document' | 'json' | 'text' | 'stream';
 interface AxiosRequest extends AxiosRequestConfig {
   errorAuth?: boolean; // 错误验证 并弹出提示
 }
@@ -73,8 +67,7 @@ class HttpApi {
           }
         })
         .catch((err) => {
-          const message =
-            err?.data?.errorMessage || err?.message || url + '请求失败';
+          const message = err?.data?.errorMessage || err?.message || url + '请求失败';
           reject(new BaseHttpModel({ code: err.status, msg: message }));
         });
     });

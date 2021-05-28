@@ -8,9 +8,7 @@ import { GET_BRANDS_LIST } from '../constants/purchaseConstant';
 
 function* asyncGetBrandsList(params: IGetBrandsListAction) {
   try {
-    const brands: CallReturnType<typeof getBrandList> = yield call(
-      getBrandList
-    );
+    const brands: CallReturnType<typeof getBrandList> = yield call(getBrandList);
     yield put(setBrandsListAction(brands.data.list));
   } catch (error) {}
 }

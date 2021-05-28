@@ -1,10 +1,5 @@
 // import { IUserAction } from '../../actions/user';
-import {
-  GET_USER_DATA,
-  SET_USER_DATA,
-  GET_DATA_ERROR,
-  LOGOUT,
-} from '../../constants/userConstant';
+import { GET_USER_DATA, SET_USER_DATA, GET_DATA_ERROR, LOGOUT } from '../../constants/userConstant';
 import { IUserReducer } from './types';
 
 const localState = sessionStorage.getItem('USER_DATA');

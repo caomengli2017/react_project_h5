@@ -46,10 +46,7 @@ interface IZHBridgeProp {
     callJsHandler: (this: any, data: any) => string | undefined;
     callbackJs: (this: void) => string | undefined;
     callNativeHandler: (prop: ICallNativeHandlerProp) => void;
-    registerJsHandler: (
-      handlerName: string,
-      callback: (e: any) => void
-    ) => void;
+    registerJsHandler: (handlerName: string, callback: (e: any) => void) => void;
     ready: () => void;
   };
 }
@@ -91,9 +88,7 @@ const browser = {
       weixin: u.indexOf('MicroMessenger') > -1,
     };
   })(),
-  language: (
-    (navigator as any).browserLanguage || navigator.language
-  ).toLowerCase(),
+  language: ((navigator as any).browserLanguage || navigator.language).toLowerCase(),
 };
 ZHBridge.Core = (function () {
   const callbacks: any = {};
@@ -128,7 +123,6 @@ ZHBridge.Core = (function () {
       args: actionArgs,
       argsCount: actionArgs.length,
     };
-    console.log('action: ', action);
     if (browser.versions.android) {
       if (actionArgs && actionArgs.length > 0) {
         window.androidObject &&
@@ -145,17 +139,13 @@ ZHBridge.Core = (function () {
       window.webkit.messageHandlers.ZHBridge &&
       window.webkit.messageHandlers.ZHBridge.postMessage
     ) {
-      window.webkit.messageHandlers.ZHBridge.postMessage(
-        JSON.stringify([action])
-      );
+      window.webkit.messageHandlers.ZHBridge.postMessage(JSON.stringify([action]));
     } else if (
       window.zhbridge_messageHandlers &&
       window.zhbridge_messageHandlers.ZHBridge &&
       window.zhbridge_messageHandlers.ZHBridge.postMessage
     ) {
-      window.zhbridge_messageHandlers.ZHBridge.postMessage(
-        JSON.stringify([action])
-      );
+      window.zhbridge_messageHandlers.ZHBridge.postMessage(JSON.stringify([action]));
     } else {
       actionQueue.push(action);
       createBridge();
@@ -179,7 +169,6 @@ ZHBridge.Core = (function () {
     if (!callbackId || status === undefined || args === undefined) {
       return;
     }
-    console.log(callbacks);
     const callback = callbacks[callbackId];
     const success = callback.success;
     const fail = callback.fail;
@@ -209,10 +198,7 @@ ZHBridge.Core = (function () {
       return result !== undefined ? JSON.stringify(result) : undefined;
     }
   };
-  const registerJsHandler = function (
-    handlerName: string,
-    callback: (e: any) => void
-  ) {
+  const registerJsHandler = function (handlerName: string, callback: (e: any) => void) {
     handlerMapper[handlerName] = callback;
     if (browser.versions.android) {
       (window as any)[handlerName] = callback;

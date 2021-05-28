@@ -8,6 +8,13 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidht": 100,
+        "singleQuote": true
+      }
+    ],
     "no-console": [
       "error",
       {
