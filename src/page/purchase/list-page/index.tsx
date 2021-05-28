@@ -6,12 +6,13 @@ import './index.less';
 import { IRootState } from '../../../redux/reducers/index';
 import {
   getBrandsListAction,
+  setShoppingCartAction,
   // setShoppingCartAction,
 } from '@src/redux/actions/purchase';
 import { IGoodsListModal } from '@src/types/model/purchase';
 import { PlusOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import _ from 'lodash';
-import { getGoodsList } from '@src/apis/purchase';
+import { getCartNum, getGoodsList } from '@src/apis/purchase';
 import { useHistory } from 'react-router-dom';
 /**
  *
@@ -30,6 +31,9 @@ const PurchaseListPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBrandsListAction());
+    getCartNum().then((res) => {
+      dispatch(setShoppingCartAction(res.data.countTotal));
+    });
   }, [dispatch]);
 
   const tabs = useMemo(() => {
@@ -44,7 +48,13 @@ const PurchaseListPage = () => {
         initialParam={{ brandId: e.id }}
         row={(data, sectionId, rowId) => (
           <WingBlank key={rowId}>
-            <div className={`${PREFIX}-item`}>
+            <div
+              className={`${PREFIX}-item`}
+              onClick={() => {
+                history.push(`/purchase-details/${data.id}`);
+                // dispatch(setShoppingCartAction(7));
+              }}
+            >
               <div className={`${PREFIX}-item-img`}>
                 <img src={data.image} alt="logo" />
               </div>
@@ -52,14 +62,9 @@ const PurchaseListPage = () => {
                 <span className={`${PREFIX}-item-main-title`}>{data.name}</span>
                 <div className={`${PREFIX}-item-main-price`}>
                   <strong>
-                    {data.price.sign} {data.price.value}
+                    {data?.price?.sign} {data?.price?.value}
                   </strong>
-                  <PlusOutlined
-                    onClick={() => {
-                      history.push('/purchase-details');
-                      // dispatch(setShoppingCartAction(7));
-                    }}
-                  />
+                  <PlusOutlined />
                 </div>
               </div>
             </div>
@@ -73,11 +78,13 @@ const PurchaseListPage = () => {
       <NavBar
         mode="light"
         icon={<Icon type="left" />}
-        onLeftClick={() => console.log('onLeftClick')}
+        onLeftClick={() => history.goBack()}
         rightContent={
-          <Badge hot text={shoppingCart}>
-            <ShoppingCartOutlined style={{ fontSize: 25 }} />
-          </Badge>
+          <span onClick={() => history.push('/car-page')}>
+            <Badge hot text={shoppingCart}>
+              <ShoppingCartOutlined style={{ fontSize: 25 }} />
+            </Badge>
+          </span>
         }
       >
         商品列表

@@ -16,7 +16,7 @@ interface IFListViewProps<T = any> {
     [key: string]: any;
   };
 }
-
+const PREFIX = 'f-list-view';
 const FListView = <T extends unknown>({
   queryApi,
   row,
@@ -57,6 +57,7 @@ const FListView = <T extends unknown>({
           dataSource: state.dataSource.cloneWithRows(res.data.list),
           isLoading: false,
           refreshing: false,
+          hasMore: res.data.list.length === 0 ? false : true,
         });
       })
       .catch((err) => {
@@ -70,12 +71,14 @@ const FListView = <T extends unknown>({
   }, []);
 
   useLayoutEffect(() => {
-    const hei =
-      document.documentElement.clientHeight -
-      (ReactDOM.findDOMNode(
-        ref.current
-      )! as HTMLDivElement).getBoundingClientRect().top;
-    dispatch({ height: hei });
+    if (ref.current) {
+      const hei =
+        document.documentElement.clientHeight -
+        (ReactDOM.findDOMNode(
+          ref.current
+        )! as HTMLDivElement).getBoundingClientRect().top;
+      dispatch({ height: hei });
+    }
   }, []);
 
   const onRefresh = () => {
@@ -92,7 +95,13 @@ const FListView = <T extends unknown>({
     dispatch({ isLoading: true });
     query();
   };
-
+  // console
+  if (state.hasMore === false && rData.current.length === 0)
+    return (
+      <div className={`${PREFIX}-empty`}>
+        <img src={require('../../assets/img/empty.svg')} alt="empty" />
+      </div>
+    );
   return (
     <ListView
       ref={ref}
@@ -113,7 +122,6 @@ const FListView = <T extends unknown>({
       renderBodyComponent={() => <MyBody />}
       style={{
         height: state.height,
-        background: 'transparent',
       }}
       renderRow={row}
       pullToRefresh={

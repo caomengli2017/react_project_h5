@@ -3,6 +3,7 @@ import { IPurchaseAction, IpurchaseReducer } from '@src/types/model/purchase';
 import {
   SET_BRANDS_LIST,
   SET_SHOPPING_CART,
+  SET_ADDRESS,
 } from '../../constants/purchaseConstant';
 
 const localState = localStorage.getItem('PURCHASE');
@@ -22,6 +23,8 @@ const purchaseReducer = (
       return { ...state, brands: action.data };
     case SET_SHOPPING_CART:
       return { ...state, shoppingCart: action.data };
+    case SET_ADDRESS:
+      return { ...state, address: action.data };
     default:
       return state;
   }

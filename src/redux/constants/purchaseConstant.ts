@@ -1,3 +1,4 @@
 export const GET_BRANDS_LIST = 'GET_BRANDS_LIST';
 export const SET_BRANDS_LIST = 'SET_BRANDS_LIST';
 export const SET_SHOPPING_CART = 'SET_SHOPPING_CART';
+export const SET_ADDRESS = 'SET_ADDRESS';

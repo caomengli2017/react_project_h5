@@ -1,5 +1,9 @@
-import { ISetShoppingCartAction } from '../../types/model/purchase';
-import { SET_SHOPPING_CART } from '../constants/purchaseConstant';
+import {
+  ISetAddressAction,
+  ISetShoppingCartAction,
+} from '../../types/model/purchase';
+import { SET_SHOPPING_CART, SET_ADDRESS } from '../constants/purchaseConstant';
+import { IAddressListModal } from '../../types/model/index';
 import {
   IBrandsListModal,
   IGetBrandsListAction,
@@ -34,6 +38,13 @@ export const setBrandsListAction = (
   return { type: SET_BRANDS_LIST, data };
 };
 
+// 设置购物车数量
 export const setShoppingCartAction = (data: number): ISetShoppingCartAction => {
   return { type: SET_SHOPPING_CART, data };
+};
+// 设置收货地址
+export const setAddressAction = (
+  data: IAddressListModal
+): ISetAddressAction => {
+  return { type: SET_ADDRESS, data };
 };

@@ -1,0 +1,210 @@
+.f-order-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  &-body {
+    flex: 1;
+    overflow-y: auto;
+    &-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      > span {
+        &:nth-of-type(1) {
+          font-size: 14px;
+          font-weight: 600;
+          color: #333333;
+        }
+        &:nth-of-type(2) {
+          font-size: 14px;
+          font-weight: 400;
+          color: #999;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  &-footer {
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    box-shadow: 0px -1px 0px 0px #e6e6e6;
+    > div {
+      &:nth-child(1) {
+        flex: 1;
+        margin-right: 12px;
+        > span {
+          line-height: 30px;
+          &:first-child {
+            font-size: 14px;
+            font-weight: 400;
+            color: #111111;
+          }
+          &:last-child {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ff5000;
+          }
+        }
+      }
+      &:nth-child(2) {
+        width: 36.2667vw;
+        > a {
+          border-radius: 5.8667vw;
+        }
+      }
+    }
+  }
+  &-address {
+    width: 93.6vw;
+    height: 33.6vw;
+    margin: 8px auto;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+
+    &-dec {
+      display: block;
+      width: 100%;
+      height: 7px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #e56d66,
+        #e56d66 7px,
+        #fff 0,
+        #fff 14px,
+        #5d85a4 0,
+        #5d85a4 21px,
+        #fff 0,
+        #fff 28px
+      );
+    }
+    &-body {
+      height: calc(100% - 7px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      box-sizing: border-box;
+      &-main {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        > div {
+          > span {
+            display: inline-block;
+            background: #ff5000;
+            border-radius: 10px;
+            padding: 2px 8px;
+            color: white;
+          }
+        }
+        > p {
+          &:nth-of-type(1) {
+            font-size: 14px;
+            font-weight: 400;
+            color: #333333;
+          }
+          &:nth-of-type(2) {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+          }
+          &:nth-of-type(3) {
+            font-size: 14px;
+            font-weight: 400;
+            color: #333333;
+          }
+        }
+      }
+    }
+  }
+  &-pay {
+    width: 93.6vw;
+    height: 11.7333vw;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    > div {
+      width: 100%;
+    }
+  }
+  &-goods {
+    width: 93.6vw;
+    background: #ffffff;
+    margin: 8px auto 0;
+    border-radius: 10px;
+    padding: 12px;
+    box-sizing: border-box;
+    &:last-child {
+      margin-bottom: 10px;
+    }
+    &-header {
+      display: flex;
+      width: 100%;
+      &-img {
+        width: 19.2vw;
+        height: 19.2vw;
+        margin-right: 8px;
+      }
+      &-main {
+        flex: 1;
+        > h3 {
+          width: 100%;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 20px;
+          color: #111111;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2; /*显示的行数*/
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  &-text {
+    width: 93.6vw;
+    height: 26.6667vw;
+    margin: 8px auto;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: 13px;
+    .am-list-item {
+      padding: 0 15px;
+    }
+  }
+  &-total {
+    width: 93.6vw;
+    margin: 8px auto;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 12px;
+    box-sizing: border-box;
+    > div {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 400;
+      color: #333333;
+      line-height: 20px;
+      margin-bottom: 12px;
+    }
+  }
+}

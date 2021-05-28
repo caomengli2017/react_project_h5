@@ -26,12 +26,7 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const postcssAspectRatioMini = require('postcss-aspect-ratio-mini');
-const postcssPxToViewport = require('postcss-px-to-viewport');
-const postcssWriteSvg = require('postcss-write-svg');
-const postcssCssnext = require('postcss-cssnext');
-const postcssViewportUnits = require('postcss-viewport-units');
-const cssnano = require('cssnano');
+
 const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
@@ -141,7 +136,7 @@ module.exports = function (webpackEnv) {
             // which in turn let's users customize the target behavior as per their needs.
             postcssNormalize(),
 
-            postcssAspectRatioMini({}),
+            // postcssAspectRatioMini({}),
             // postcssPxToViewport({
             //   viewportWidth: 750, // (Number) The width of the viewport.
             //   viewportHeight: 1334, // (Number) The height of the viewport.
@@ -156,11 +151,11 @@ module.exports = function (webpackEnv) {
             //   minPixelValue: 1, // (Number) Set the minimum pixel value to replace.
             //   mediaQuery: false, // (Boolean) Allow px to be converted in media queries.
             // }),
-            postcssCssnext({}),
-            postcssWriteSvg({
-              utf8: false,
-            }),
-            postcssViewportUnits({}),
+            // postcssCssnext({}),
+            // postcssWriteSvg({
+            //   utf8: false,
+            // }),
+            // postcssViewportUnits({}),
             // cssnano({
             //   'cssnano-preset-advanced': {
             //     zindex: false,
@@ -433,11 +428,12 @@ module.exports = function (webpackEnv) {
             // smaller than specified limit in bytes as data URLs to avoid requests.
             // A missing `test` is equivalent to a match.
             {
-              test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+              test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.svg$/],
               loader: require.resolve('url-loader'),
               options: {
                 limit: imageInlineSizeLimit,
                 name: 'static/media/[name].[hash:8].[ext]',
+                esModule: false,
               },
             },
             // Process application JS with Babel.

@@ -16,6 +16,26 @@ const DemoPage = () => {
           前往商品列表
         </Button>
         <WhiteSpace />
+        <Button type="primary" onClick={() => history.push('/car-page')}>
+          前往购物车
+        </Button>
+        <WhiteSpace />
+        <Button type="primary" onClick={() => history.push('/order-page')}>
+          前往订单页面
+        </Button>
+        <WhiteSpace />
+        <Button
+          type="primary"
+          onClick={() => history.push('/address-list-page')}
+        >
+          前往地址页面
+        </Button>
+        <WhiteSpace />
+        <Button type="primary" onClick={() => history.push('/pay-page')}>
+          前往支付页面
+        </Button>
+
+        <WhiteSpace />
         <Button
           type="primary"
           onClick={() => {

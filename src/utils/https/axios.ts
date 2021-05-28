@@ -7,14 +7,15 @@ const axios = Axios.create();
 axios.interceptors.request.use((value) => {
   const {
     // login,
-    accessToken = '12b2850042302c36cefe2bde35b817e1',
-    uuid = 'f9505ff0-cb82-4f43-843f-a3389ca7308b',
+    accessToken = '21c844e5266b23a779e2e41dacaac5e2',
+    uuid = 'fb33878a-4bed-4cd3-99dd-82987a2820df',
   } = store.getState().user;
 
   value.headers['lang'] = 'cn';
   // if (login) {
   value.headers = {
     ...value.headers,
+    device: 'web',
     accessToken,
     uuid,
   };

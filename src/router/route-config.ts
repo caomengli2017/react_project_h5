@@ -20,7 +20,7 @@ const constantsRoutes: IRouteConfigs[] = [
     auth: false,
   },
   {
-    path: '/purchase-details',
+    path: '/purchase-details/:id',
     component: 'purchase/details-page',
     exact: true,
     auth: false,
@@ -52,6 +52,42 @@ const constantsRoutes: IRouteConfigs[] = [
   {
     path: '/custom-query',
     component: 'checkstand/custom-query',
+    exact: true,
+    auth: false,
+  },
+  {
+    path: '/car-page',
+    component: 'purchase/car-page',
+    exact: true,
+    auth: false,
+  },
+  {
+    path: '/order-page',
+    component: 'purchase/order-page',
+    exact: true,
+    auth: false,
+  },
+  {
+    path: '/address-list-page',
+    component: 'address/address-list',
+    exact: true,
+    auth: false,
+  },
+  {
+    path: '/address-add-page',
+    component: 'address/address-add',
+    exact: true,
+    auth: false,
+  },
+  {
+    path: '/pay-page/:id',
+    component: 'pay/pay-page',
+    exact: true,
+    auth: false,
+  },
+  {
+    path: '/pay-result-page',
+    component: 'pay/pay-result',
     exact: true,
     auth: false,
   },
