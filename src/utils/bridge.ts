@@ -15,12 +15,10 @@
  * VaffleGotoStoreBridgeKey 前往新增店铺
  * vaffleSavedPhotosToAlbum 下载图片保存到相册 url
  */
-// type IBridgeKeys = {
-//   [key: string]: any;
-// };
+type IBridgeKeys = 'nativeRouterPush';
 
 interface ICallNativeHandlerProp {
-  actionName: string;
+  actionName: IBridgeKeys;
   actionArgs?: any[];
   successCallback?: (e: any) => void;
   failCallback?: (e: any) => void;
@@ -112,7 +110,7 @@ ZHBridge.Core = (function () {
       if (actionArgs && actionArgs.length > 0) {
         window.androidObject &&
           window.androidObject[actionName] &&
-          window.androidObject[actionName](JSON.stringify(actionArgs));
+          window.androidObject[actionName](JSON.stringify(actionArgs[0]));
       } else {
         window.androidObject &&
           window.androidObject[actionName] &&

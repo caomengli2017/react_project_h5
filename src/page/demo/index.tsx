@@ -15,7 +15,7 @@ const DemoPage = () => {
           type="primary"
           onClick={() => {
             bridgeJs.Core.callNativeHandler({
-              actionName: 'abc',
+              actionName: 'nativeRouterPush',
               actionArgs: ['CheckSendPackageActivity'],
             });
           }}
